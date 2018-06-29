@@ -16,9 +16,44 @@ app.use(express.static(publicPath))
 io.on('connection', (socket)=> {
   console.log('Nouveau user connection');
 
+///////////////////////////////////////////////
+// passing email object  
+  // socket.emit('newEmail', {
+  //   from: 'manski@mail.com',
+  //   text: 'hey bitch.',
+  //   createdAt: new Date().getMonth()
+  // });
+
+///////////////////////////////////////////////
+// creating emails
+  // socket.on('createEmail', (newEmail) =>{
+  //   console.log('createEmail', newEmail);
+  // })
+
+///////////////////////////////////////////////
+// disconnecting emails
   socket.on('disconnect', ()=>{
     console.log('you dont have connection')
   })
+
+///////////////////////////////////////////////
+// newMessage
+  // socket.emit('newMessage', {
+  //   from: 'nanay@email.com',
+  //   text: 'this is our new message',
+  //   createdAt: new Date().getFullYear()
+  // })
+
+
+
+socket.on('createMessage', (mes)=>{
+  console.log('ton nuevo mensaje', mes)
+  io.emit('newMessage', {
+    from: mes.email,
+    text: mes.text,
+    createdAt: new Date().getTime()
+  })
+})
 
 
 
