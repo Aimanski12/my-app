@@ -1,25 +1,34 @@
 const path = require('path')
+const http = require('http')
 const express = require('express')
+const socketIO = require('socket.io')
+
+
+
 const publicPath = path.join(__dirname + '../../public')
-const app = express()
-
-
 const port = process.env.PORT || 3000;
-
+const app = express();
+const server = http.createServer(app);
+const io = socketIO(server)
 
 app.use(express.static(publicPath))
 
-app.listen(port, ()=>{
+io.on('connection', (socket)=> {
+  console.log('Nouveau user connection');
+
+  socket.on('disconnect', ()=>{
+    console.log('you dont have connection')
+  })
+
+
+
+})
+
+
+
+server.listen(port, ()=>{
   console.log(`Server is up on ${port}`)
 })
 
 
 
-
-// app.get('/', function (req, res) {
-//   res.sendFile(publicPath + '/index.html')
-// })
-// app.listen(3000)
-
-
-// console.log(publicPath)
