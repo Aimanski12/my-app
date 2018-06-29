@@ -45,6 +45,19 @@ io.on('connection', (socket)=> {
   // })
 
 
+socket.emit('newMessage', {
+  from: 'Admin',
+  text: 'Welcome to the chat app'
+})
+
+socket.broadcast.emit('newMessage', {
+  from: 'Admin',
+  text: 'new user joined',
+  createdAt: new Date().getTime()
+})
+
+
+
 
 socket.on('createMessage', (mes)=>{
   console.log('ton nuevo mensaje', mes)
@@ -53,6 +66,16 @@ socket.on('createMessage', (mes)=>{
     text: mes.text,
     createdAt: new Date().getTime()
   })
+  // socket.broadcast.emit('newMessage', {
+    //     from: mes.email,
+    //     text: mes.text,
+    //     createdAt: new Date().getTime()
+    // })
+    
+
+
+
+
 })
 
 
