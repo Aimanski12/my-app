@@ -33,13 +33,37 @@
 
 
 
- socket.on('newMessage', function (message) {
-   console.log('tienes nuevo mensaje', message)
+socket.on('newMessage', function (message) {
+  console.log('tienes nuevo mensaje', message);
+  var li = $('<li></li>');
+  li.text(`${message.from}: ${message.text}`);
+
+
+
+  $('#messages').append(li)
+
+
+
  })
 
 
+// socket.emit('createMessage', {
+//   from: 'frank',
+//   text: 'hi'
+// }, function(data){
+//   console.log('ich bin ein junge: ', data)
+// });
 
 
 
+$('#message-form').on('submit', function(e){
+  e.preventDefault();
 
- //  })
+  socket.emit('createMessage', {
+    from: 'yonski',
+    text: $('[name=message]').val()
+  }, function(data){
+      console.log('jQuery Worked', data)
+  })
+})
+

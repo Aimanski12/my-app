@@ -29,9 +29,11 @@ io.on('connection', (socket) => {
 
   socket.broadcast.emit('newMessage', generateMessage('Admin','new user joined'));
 
-  socket.on('createMessage', (mes) => {
+
+  socket.on('createMessage', (mes, callback) => {
     console.log('ton nuevo mensaje', mes)
-    io.emit('newMessage', generateMessage(mes.from, mes.text))
+    io.emit('newMessage', generateMessage(mes.from, mes.text));
+      callback('du ist eine fraune');
   })
 
 })
