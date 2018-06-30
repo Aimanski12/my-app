@@ -2,6 +2,8 @@ const path = require('path')
 const http = require('http')
 const express = require('express')
 const socketIO = require('socket.io')
+const {generateMessage} = require('./utils/message')
+
 
 
 
@@ -13,80 +15,29 @@ const io = socketIO(server)
 
 app.use(express.static(publicPath))
 
-io.on('connection', (socket)=> {
+io.on('connection', (socket) => {
   console.log('Nouveau user connection');
 
-///////////////////////////////////////////////
-// passing email object  
-  // socket.emit('newEmail', {
-  //   from: 'manski@mail.com',
-  //   text: 'hey bitch.',
-  //   createdAt: new Date().getMonth()
-  // });
 
-///////////////////////////////////////////////
-// creating emails
-  // socket.on('createEmail', (newEmail) =>{
-  //   console.log('createEmail', newEmail);
-  // })
-
-///////////////////////////////////////////////
-// disconnecting emails
-  socket.on('disconnect', ()=>{
+  ///////////////////////////////////////////////
+  // disconnecting emails
+  socket.on('disconnect', () => {
     console.log('you dont have connection')
   })
 
-///////////////////////////////////////////////
-// newMessage
-  // socket.emit('newMessage', {
-  //   from: 'nanay@email.com',
-  //   text: 'this is our new message',
-  //   createdAt: new Date().getFullYear()
-  // })
+  socket.emit('newMessage', generateMessage('Admin', 'Welcome to the chat app'))
 
+  socket.broadcast.emit('newMessage', generateMessage('Admin','new user joined'));
 
-socket.emit('newMessage', {
-  from: 'Admin',
-  text: 'Welcome to the chat app'
-})
-
-socket.broadcast.emit('newMessage', {
-  from: 'Admin',
-  text: 'new user joined',
-  createdAt: new Date().getTime()
-})
-
-
-
-
-socket.on('createMessage', (mes)=>{
-  console.log('ton nuevo mensaje', mes)
-  io.emit('newMessage', {
-    from: mes.email,
-    text: mes.text,
-    createdAt: new Date().getTime()
+  socket.on('createMessage', (mes) => {
+    console.log('ton nuevo mensaje', mes)
+    io.emit('newMessage', generateMessage(mes.from, mes.text))
   })
-  // socket.broadcast.emit('newMessage', {
-    //     from: mes.email,
-    //     text: mes.text,
-    //     createdAt: new Date().getTime()
-    // })
-    
-
-
-
 
 })
 
 
 
-})
-
-
-
-server.listen(port, ()=>{
+server.listen(port, () => {
   console.log(`Server is up on ${port}`)
 })
-
-
-
