@@ -1,6 +1,6 @@
 const expect = require('expect')
 
-let { generateMessage } = require('./message');
+let { generateMessage, generateLocationMessage } = require('./message');
 
 
 describe('generateMessage', (req, res) => {
@@ -20,10 +20,23 @@ describe('generateMessage', (req, res) => {
   })
 
 
-  // it('should', () => {
+
+  describe('generateLocationMessage', (req, res)=>{
+    it('should generate location object', ()=>{
+     let from = 'sample';
+     let lat = 1;
+     let long = 1
+
+     let genLoc = generateLocationMessage(from, lat, long);
+
+     expect(genLoc.from).toBe(from);
+     expect(genLoc.url).toBe(`http://www.google.com/maps?q=${lat},${lat}`);
+     expect(typeof genLoc.createdAt).toBe('number')
+      
 
 
-  // })
+    })
 
+  })
 
 })
