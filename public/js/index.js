@@ -1,4 +1,4 @@
- let socket = io();
+let socket = io();
 
  socket.on('connect', function () {
    console.log('connected to the server');
@@ -34,22 +34,46 @@
 
 
 socket.on('newMessage', function (message) {
-  console.log('tienes nuevo mensaje', message);
-  var li = $('<li></li>');
-  li.text(`${message.from}: ${message.text}`);
-  $('#messages').append(li)
+  // console.log('tienes nuevo mensaje', message);
+  let formattedTime = moment(message.createdAt).format('h:mm a')
+  // var li = $('<li></li>');
+  // li.text(`${message.from}: ${message.text} ${formattedTime}`);
+  // $('#messages').append(li)
+
+  let template = $('#message_template').html();
+  let html = Mustache.render(template, {
+    text: message.text,
+    from: message.from,
+    createdAt: formattedTime
+  });
+
+  $('#messages').append(html);
+
  })
 
 
 socket.on('newLocationMessage', function(message){
-  let li = $('<li></li>');
-  let a = $('<a target="_blank">My Location</a>');
+  let formattedTime = moment(message.createdAt).format('h:mm a')
+  // console.log(formattedTime)
 
-  li.text(`${message.from}: `);
-  a.attr('href', message.url);
+  let template = $('#location_template').html();
+  let html = Mustache.render(template, {
+    from: message.from,
+    createdAt: formattedTime,
+    url: message.url
+  })
 
-  li.append(a);
-  $('#messages').append(li)
+
+
+
+  // let li = $('<li></li>');
+  // let a = $('<a target="_blank">My Location </a><i>'+formattedTime+'</i>');
+  
+  // li.text(`${message.from}: `);
+  // a.attr('href', message.url);
+
+  // li.append(a);
+  $('#messages').append(html)
 }); 
 
 
@@ -92,7 +116,7 @@ locationButton.on('click', function(){
     
     socket.emit('createLocationMessage', {
       latitude: position.coords.latitude,
-      longitude: position.coords.longitude
+      longitude: position.coords.longitude,
     })
     locationButton.removeAttr('disabled').text('Send location');
   }, function() {
