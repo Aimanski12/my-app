@@ -68,7 +68,7 @@ $('#message-form').on('submit', function(e){
   e.preventDefault();
 
   socket.emit('createMessage', {
-    from: 'yonski',
+    from: 'langga',
     text: $('[name=message]').val()
   }, function(data){
       console.log('jQuery Worked', data)
