@@ -33,7 +33,7 @@ io.on('connection', (socket) => {
   socket.on('createMessage', (mes, callback) => {
     console.log('ton nuevo mensaje', mes)
     io.emit('newMessage', generateMessage(mes.from, mes.text));
-      callback('du ist eine fraune');
+      callback();
   })
 
   socket.on('createLocationMessage', (coords)=>{
