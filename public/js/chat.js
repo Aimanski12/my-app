@@ -46,6 +46,16 @@ function scrollToBottom() {
 
  })
 
+ socket.on('updateUserList', function(users){
+   var ol = $('<ol></ol>');
+   users.forEach(function (user){
+     ol.append($('<li></li>').text(user));
+   })
+   $('#users').html(ol);
+  //  console.log('Users List', users)
+ })
+
+
  socket.on('disconnect', function () {
    console.log('disconnected from the server')
  })
