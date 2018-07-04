@@ -251,3 +251,13 @@ button:disabled {
     width: 100%
   }
 }
+
+.form-field p{
+  /* background: blue; */
+  text-align: center;
+  font-family: 'bree serif';
+  /* color: red; */
+  font-size: 11px;
+  padding-top: 3px;
+  color: rgb(50,50,50)
+}
