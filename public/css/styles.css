@@ -223,11 +223,11 @@ button:disabled {
 }
 
 .alert{ 
-  background: #9afcb2;
+  background: #c0ffc9;
 }
 
 .exit {
-  background: #ffb0b0;
+  background: #ffd2d2;
 }
 
 @media (max-width: 600px) {
