@@ -187,6 +187,7 @@ button:disabled {
 
 .message__body p, a{
   font-family: 'pacifico';
+  color: rgb(25,25,25)
 }
 
 .message__body a {
