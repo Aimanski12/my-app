@@ -60,16 +60,24 @@ io.on('connection', (socket) => {
 
   ///////////////////////////////////////////////////
   socket.on('createMessage', (mes, callback) => {
-    console.log('ton nuevo mensaje', mes)
-    io.emit('newMessage', generateMessage(mes.from, mes.text));
+    var user = users.getUser(socket.id);
+    console.log(user)
+
+    if(user && isRealString(mes.text)){
+      io.to(user.room).emit('newMessage', generateMessage(user.name, mes.text));
+    }
+    // console.log('ton nuevo mensaje', mes)
       callback();
   })
 
 
   ///////////////////////////////////////////////////
   socket.on('createLocationMessage', (coords)=>{
+    var user = users.getUser(socket.id);
     // console.log('this is it')
-    io.emit('newLocationMessage', generateLocationMessage('Admin', coords.latitude, coords.longitude))
+    if(user){
+      io.to(user.room).emit('newLocationMessage', generateLocationMessage(user.name, coords.latitude, coords.longitude))
+    }
   })
 
 })
