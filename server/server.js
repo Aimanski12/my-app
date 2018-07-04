@@ -28,7 +28,7 @@ io.on('connection', (socket) => {
 
     if(user){
       io.to(user.room).emit('updateUserList', users.getUserList(user.room));
-      io.to(user.room).emit('newMessage', generateMessage('Admin', `${user.name} has left.`));
+      io.to(user.room).emit('newExitMessage', generateMessage('Admin', `${user.name} has left.`));
     }
 
 
@@ -53,7 +53,7 @@ io.on('connection', (socket) => {
 
     io.to(params.room).emit('updateUserList', users.getUserList(params.room));
     socket.emit('newMessage', generateMessage('Admin', 'Welcome to my chatApp'))
-    socket.broadcast.to(params.room).emit('newMessage', generateMessage('Admin', `${params.name} has joined`));
+    socket.broadcast.to(params.room).emit('newAlertMessage', generateMessage('Admin', `${params.name} has joined`));
     callback()
   })
 
@@ -64,7 +64,7 @@ io.on('connection', (socket) => {
     console.log(user)
 
     if(user && isRealString(mes.text)){
-      io.to(user.room).emit('newMessage', generateMessage(user.name, mes.text));
+      io.to(user.room).emit('newMessage', generateMessage(user.name, mes.text, ));
     }
     // console.log('ton nuevo mensaje', mes)
       callback();

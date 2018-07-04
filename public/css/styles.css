@@ -222,7 +222,13 @@ button:disabled {
   text-align: right  */
 }
 
+.alert{ 
+  background: #9afcb2;
+}
 
+.exit {
+  background: #ffb0b0;
+}
 
 @media (max-width: 600px) {
   * {

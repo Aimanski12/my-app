@@ -1,6 +1,7 @@
  const moment = require('moment')
 
 let generateMessage = (from, text) => {
+  // console.log('first alert', alert)
   return {
     from,
     text,

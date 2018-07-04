@@ -68,20 +68,54 @@ function scrollToBottom() {
  //     date: ${email.createdAt}
  //  `);
 
-socket.on('newMessage', function (message) {
-  // console.log('tienes nuevo mensaje', message);
-  let formattedTime = moment(message.createdAt).format('h:mm a')
-  // var li = $('<li></li>');
-  // li.text(`${message.from}: ${message.text} ${formattedTime}`);
-  // $('#messages').append(li)
 
-  let template = $('#message_template').html();
+socket.on('newAlertMessage', function (message) {
+  let formattedTime = moment(message.createdAt).format('h:mm a')
+
+  let template = $('#message_alert').html();
   let html = Mustache.render(template, {
     text: message.text,
     from: message.from,
     createdAt: formattedTime
   });
 
+  $('#messages').append(html);
+  scrollToBottom();
+
+})
+
+socket.on('newExitMessage', function (message) {
+  let formattedTime = moment(message.createdAt).format('h:mm a')
+
+  let template = $('#message_exit').html();
+  let html = Mustache.render(template, {
+    text: message.text,
+    from: message.from,
+    createdAt: formattedTime
+  });
+
+  $('#messages').append(html);
+  scrollToBottom();
+
+})
+
+
+socket.on('newMessage', function (message) {
+  // console.log(message.text)
+  // console.log('tienes nuevo mensaje', message);
+  let formattedTime = moment(message.createdAt).format('h:mm a')
+  // let alert = message.alert;
+  // var li = $('<li></li>');
+  // li.text(`${message.from}: ${message.text} ${formattedTime}`);
+  // $('#messages').append(li)
+  
+  let template = $('#message_template').html();
+  let html = Mustache.render(template, {
+    text: message.text,
+    from: message.from,
+    createdAt: formattedTime
+  });
+  
   $('#messages').append(html);
   scrollToBottom();
 
