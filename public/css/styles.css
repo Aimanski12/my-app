@@ -199,22 +199,22 @@ button:disabled {
   /* background: red; */
 }
 
-.message__body p, a{
+.message__body p{
   font-family: 'Fjalla One';
-  color: rgb(25,25,25)
+  color: rgb(80,80,80)
 }
 
 .message__body a {
   font-family: 'bree serif';
-  color: rgb(60,60,60);
+  color: rgb(40,40,40);
   text-decoration: none;
   color: #2e7fdf
 
 }
 
 .message__body h4  {
-  color: rgb(80,80,80);
-  font-family: 'signika';
+  color: rgb(120,120,120);
+  font-family: 'hind';
   font-size: 10px;
   font-weight: 600;
   font-style: italic;
@@ -228,8 +228,8 @@ button:disabled {
 }
 
 .message__body span {
-  color: rgb(120, 120, 120);
-  font-family: 'signika';
+  color: rgb(160,160,160);
+  font-family: 'hind';
   font-size: 9px;
   float: right;
   /* width: 50%;
