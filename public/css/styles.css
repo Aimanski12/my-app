@@ -172,21 +172,35 @@ button:disabled {
 
 
 .message {
-  padding: 5px 10px;
-  background:rgb(208,248,252);
-  width: 60%;
-  border-radius: 6px;
+  /* padding: 5px 10px; */
+  /* background:rgb(208,248,252); */
+  width: 100%;
+  /* border-radius: 6px; */
   margin-top: 3px;
 }
 
-.message__title {
-  display: relative;
+.back {
+  /* padding: 5px 10px; */
+  /* background:rgb(208,248,252); */
+  width: 100%;
+  /* border-radius: 6px; */
+  margin-top: 3px;
+  display: inline-block;
+  
+  
+}
+.message__body {
+  border-radius: 6px;
+  padding: 5px 10px;
+  
   margin-bottom: 5px;
+  width: 65%;
+  background:rgb(208,248,252);
   /* background: red; */
 }
 
 .message__body p, a{
-  font-family: 'pacifico';
+  font-family: 'Fjalla One';
   color: rgb(25,25,25)
 }
 
@@ -266,4 +280,15 @@ button:disabled {
   font-size: 10px;
   padding-top: 3px;
   color: rgb(50,50,50)
+}
+
+.welcome{
+  width: 100%
+}
+
+.myMessage{
+  background: #fff6de;
+  /* display: flex; */
+  float: right;
+  /* height: 100px; */
 }

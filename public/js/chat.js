@@ -22,6 +22,7 @@ function scrollToBottom() {
 
 
 
+
  socket.on('connect', function () {
   //  console.log('connected to the server');
 
@@ -100,6 +101,28 @@ socket.on('newExitMessage', function (message) {
 })
 
 
+socket.on('welcomeMessage', function (message) {
+  // console.log(message.text)
+  // console.log('tienes nuevo mensaje', message);
+  let formattedTime = moment(message.createdAt).format('h:mm a')
+  // let alert = message.alert;
+  // var li = $('<li></li>');
+  // li.text(`${message.from}: ${message.text} ${formattedTime}`);
+  // $('#messages').append(li)
+
+  let template = $('#message_template').html();
+  let html = Mustache.render(template, {
+    text: message.text,
+    from: message.from,
+    createdAt: formattedTime
+  });
+
+  $('#messages').append(html);
+  scrollToBottom();
+
+})
+
+
 socket.on('newMessage', function (message) {
   // console.log(message.text)
   // console.log('tienes nuevo mensaje', message);
@@ -109,7 +132,7 @@ socket.on('newMessage', function (message) {
   // li.text(`${message.from}: ${message.text} ${formattedTime}`);
   // $('#messages').append(li)
   
-  let template = $('#message_template').html();
+  let template = $('#newMessage').html();
   let html = Mustache.render(template, {
     text: message.text,
     from: message.from,
@@ -120,6 +143,29 @@ socket.on('newMessage', function (message) {
   scrollToBottom();
 
  })
+
+
+socket.on('myMessage', function (message) {
+  // console.log(message.text)
+  // console.log('tienes nuevo mensaje', message);
+  let formattedTime = moment(message.createdAt).format('h:mm a')
+  // let alert = message.alert;
+  // var li = $('<li></li>');
+  // li.text(`${message.from}: ${message.text} ${formattedTime}`);
+  // $('#messages').append(li)
+
+  let template = $('#myMessage').html();
+  let html = Mustache.render(template, {
+    text: message.text,
+    from: message.from,
+    createdAt: formattedTime
+  });
+
+  $('#messages').append(html);
+  scrollToBottom();
+
+})
+
 
 socket.on('newLocationMessage', function(message){
   let formattedTime = moment(message.createdAt).format('h:mm a')

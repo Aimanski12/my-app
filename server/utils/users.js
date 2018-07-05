@@ -1,4 +1,3 @@
-
 [{
   id: '1',
   name: 'une',
@@ -63,6 +62,8 @@ class Users {
     // console.log(namesArray)
     return namesArray
   }
+
+
 
 
 }
