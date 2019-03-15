@@ -21,4 +21,4 @@ This is a basic chat app I created using Socket.io. A javascript client library 
 * Abstract time using momentjs. 
 * Validate the output data if it matches the expected data type using Expect.
 
-
+# The app is available [here](https://aiman-chatapp.herokuapp.com/);
