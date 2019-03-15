@@ -8,7 +8,6 @@ let generateMessage = (from, text) => {
     // createdAt: new Date().getTime()
     createdAt: moment().valueOf()
   }
-
 };
 
 let generateLocationMessage = (from, latitude, longitude) => {
