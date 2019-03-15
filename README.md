@@ -1,34 +1,24 @@
-# React Native Project 03
+# Chat App
 
-An React Native application to level up my skills.
+This is a basic chat app I created using Socket.io. A javascript client library for the browser. It it is real-time bi-directional event-based communication.
 
 # The App looks like this;
 
 ![Screenshot](public/img/screen.jpg)
 
-# Basic set up and installation
+# JS libraries used
 
-* [Getting Started](https://facebook.github.io/react-native/docs/getting-started)
+* [ExpressJS](https://github.com/expressjs/express). 
+* [Moment](https://www.npmjs.com/package/moment). 
+* [Socket.io](https://www.npmjs.com/package/socket.io). 
+* [Nodemon](https://www.npmjs.com/package/nodemon). 
+* [Expect](https://github.com/mjackson/expect). 
 
-# Libraries used
+# What I Learned from this project;
 
-* [React Native](https://facebook.github.io/react-native/)
-* [React Native Navigation](https://wix.github.io/react-native-navigation/#/)
-* [React Native Dimensions](https://facebook.github.io/react-native/docs/height-and-width.html)
-* [Flexbox in React Native](https://facebook.github.io/react-native/docs/flexbox.html)
-* [React Native Animations](https://facebook.github.io/react-native/docs/animations.html)
-* [React Redux](https://react-redux.js.org/)
-* [Styling React Native](https://github.com/vhpoet/react-native-styling-cheat-sheet)
+* Set-up an basic express server.
+* How to attach socket.io to a running NodeJS HTTP server and establish a bi-directional and event based connection to transmit meta-data between connected clients.
+* Abstract time using momentjs. 
+* Validate the output data if it matches the expected data type using Expect.
 
-
-# What I Learned
-
-* Setup android SDK in local enviroment and interact with simulators.
-* Create a good development setup for React Native.
-* Create a basic React Native app.
-* How React Native works and runs.
-* How to build a reusable React Native components.
-* Interact with the user using TextInputs and Validations.
-* Integrate Redux in the application.
-* Create a dynamic UI by allowing user to upload images to the server.<br>
 
