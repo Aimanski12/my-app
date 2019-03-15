@@ -4,7 +4,7 @@ An React Native application to level up my skills.
 
 # The App looks like this;
 
-![Screenshot](public/img/screen.png)
+![Screenshot](public/img/screen.jpg)
 
 # Basic set up and installation
 
