@@ -41,7 +41,7 @@ function scrollToBottom() {
       alert(err);
       window.location.href = '/';
     }else{
-      console.log('no error')
+      // console.log('no error')
     }
   })
 

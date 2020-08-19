@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: "signika", sans-serif;
   font-weight: 300;
   font-size: .95rem;
 }
@@ -24,7 +24,7 @@ button {
   color: white;
   cursor: pointer;
   padding: 10px;
-  transition: background .3s ease;
+  transition: all .3s ease;
 }
 
 button:hover {
@@ -41,23 +41,12 @@ button:disabled {
 
 .centered-form {
   display: flex;
+  flex-direction: column;
   align-items: center;
   height: 100vh;
   width: 100vw;
   justify-content: center;
-  background: -moz-linear-gradient(125deg, rgba(39, 107, 130, 1) 0%, rgba(49, 84, 129, 1) 100%);
-  /* ff3.6+ */
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(49, 84, 129, 1)), color-stop(100%, rgba(39, 107, 130, 1)));
-  /* safari4+,chrome */
-  background: -webkit-linear-gradient(125deg, rgba(39, 107, 130, 1) 0%, rgba(49, 84, 129, 1) 100%);
-  /* safari5.1+,chrome10+ */
-  background: -o-linear-gradient(125deg, rgba(39, 107, 130, 1) 0%, rgba(49, 84, 129, 1) 100%);
-  /* opera 11.10+ */
-  background: -ms-linear-gradient(125deg, rgba(39, 107, 130, 1) 0%, rgba(49, 84, 129, 1) 100%);
-  /* ie10+ */
-  background: linear-gradient(325deg, rgba(39, 107, 130, 1) 0%, rgba(49, 84, 129, 1) 100%);
-  /* w3c */
-  background: url("../img/background.jpg") fixed center no-repeat;
+  background: linear-gradient(180deg, #30A9B3 0%, rgba(48, 169, 179, 0.56) 51.56%, #30A9B3 100%);
 }
 
 .centered-form__form {
@@ -98,18 +87,7 @@ button:disabled {
   float: left;
   width: 20%;
   height: 100vh;
-  background: -moz-linear-gradient(125deg, rgba(39, 107, 130, 1) 0%, rgba(49, 84, 129, 1) 100%);
-  /* ff3.6+ */
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(49, 84, 129, 1)), color-stop(100%, rgba(39, 107, 130, 1)));
-  /* safari4+,chrome */
-  background: -webkit-linear-gradient(125deg, rgba(39, 107, 130, 1) 0%, rgba(49, 84, 129, 1) 100%);
-  /* safari5.1+,chrome10+ */
-  background: -o-linear-gradient(125deg, rgba(39, 107, 130, 1) 0%, rgba(49, 84, 129, 1) 100%);
-  /* opera 11.10+ */
-  background: -ms-linear-gradient(125deg, rgba(39, 107, 130, 1) 0%, rgba(49, 84, 129, 1) 100%);
-  /* ie10+ */
-  background: linear-gradient(325deg, rgba(39, 107, 130, 1) 0%, rgba(49, 84, 129, 1) 100%);
-  /* w3c */
+  background: linear-gradient(180deg, #30A9B3 0%, rgba(48, 169, 179, 0.56) 51.56%, #30A9B3 100%);
 }
 
 .chat__sidebar h3 {
@@ -136,7 +114,7 @@ button:disabled {
   height: 100vh;
   width: 80%;
   float: left;
-  background: url("../img/background.jpg") fixed center no-repeat;
+  background: linear-gradient(180deg, #30A9B3 0%, rgba(48, 169, 179, 0.56) 51.56%, #30A9B3 100%);
 }
 
 .chat__messages {
@@ -213,13 +191,8 @@ button:disabled {
   font-size: 12px;
   font-weight: 600;
   font-style: italic;
-  /* padding-left: 5px; */
-  /* float: right; */
   
   width: 100%;
-  /* text-align: right; */
-  /* margin-right: 10px; */
-  /* background: red */
 }
 
 .message__body span {
@@ -228,8 +201,6 @@ button:disabled {
   font-size: 11px;
   float: right;
   font-weight: 700
-  /* width: 50%;
-  text-align: right  */
 }
 
 .alert{ 
@@ -238,6 +209,28 @@ button:disabled {
 
 .exit {
   background: #ffd2d2;
+}
+
+.instruction {
+  width: 250px;
+  font-size: 0.85em;
+  /* text-align: right; */
+  color: black;
+}
+
+.instruction span {
+  font-size: 1em;
+  
+}
+
+.link {
+}
+
+.copyright {
+  color: black;
+  margin-top: 15px;
+  font-size: 0.95em;
+  /* font-family: 'signika' */
 }
 
 @media (max-width: 600px) {
@@ -260,9 +253,6 @@ button:disabled {
 
 
 @media (max-width: 420px) {
-  /* .chat__messages{
-    display: none;
-  } */
   .chat__main {
     width: 100%
   }
@@ -283,7 +273,5 @@ button:disabled {
 
 .myMessage{
   background: #fff6de;
-  /* display: flex; */
   float: right;
-  /* height: 100px; */
 }
